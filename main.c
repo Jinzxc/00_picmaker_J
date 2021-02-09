@@ -16,15 +16,13 @@ int function(int x)
 
 int main() 
 {
-	int fd;
-	char buffer[B_SIZE];
+    int fd;
+    char buffer[B_SIZE];
     int x, y;
 	
-	fd = open ("graph.ppm", O_CREAT | O_WRONLY, 0644);
-	snprintf(buffer, B_SIZE - 1, "P3 %d %d 255\n", WIDTH, HEIGHT);
-	write(fd, buffer, strlen(buffer));
-    
-    int time = 0;
+    fd = open ("graph.ppm", O_CREAT | O_WRONLY, 0644);
+    snprintf(buffer, B_SIZE - 1, "P3 %d %d 255\n", WIDTH, HEIGHT);
+    write(fd, buffer, strlen(buffer));
 
     for(int x = 0; x < WIDTH + 1; x++) {
         for(int y = 0; y < HEIGHT + 1; y++) {
@@ -38,8 +36,7 @@ int main()
             write(fd, buffer, strlen(buffer));
         }
     }
-
-	close (fd);
-	
-	return 0;
+    
+    close (fd);
+    return 0;
 }
